@@ -33,8 +33,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
+          server: ftps://waws-prod-db3-159.ftp.azurewebsites.windows.net/site/wwwroot
+          username: themoviedatabase\$themoviedatabase
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: ${{ secrets.FTP_PORT }} # todo replace with your web hosts ftps port

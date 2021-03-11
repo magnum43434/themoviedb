@@ -37,5 +37,5 @@ jobs:
           username: themoviedatabase\$themoviedatabase
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          port: ${{ secrets.FTP_PORT }} # todo replace with your web hosts ftps port
-
+          port: 990 # todo replace with your web hosts ftps port
+          dangerous-clean-slate: true

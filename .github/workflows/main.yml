@@ -23,6 +23,8 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
+        env:
+         CI: false
       - name: Upload bundle
         uses: actions/upload-artifact@master
         with:

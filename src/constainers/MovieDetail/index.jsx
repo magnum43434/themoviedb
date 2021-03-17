@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import themoviedb from '../../api/themoviedb';
 
 function MovieDetail({ movie }) {
     const [movieUrl, setMovieUrl] = useState()
     const [selMovie, setSelMovie] = useState(movie)
+    let { ID } = useParams()
 
     useEffect(() => {
         const fetchData = async () => {
             if (selMovie === null) {
-                let pathname = window.location.pathname.split('/')
-                const res = await themoviedb.get(`movie/${pathname[pathname.length - 1]}?language=en-US`)
+                const res = await themoviedb.get(`movie/${ID}?language=en-US`)
                 setSelMovie(res.data)
             } else {
                 const res = await themoviedb.get(`movie/${selMovie.id}/videos?language=en-US`)

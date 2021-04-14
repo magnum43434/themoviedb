@@ -33,6 +33,10 @@ function Movies({ fetchMovies, movies }) {
         Dispatch({ type: 'reset' })
         setSearchCat(e.target.value)
     }
+    useEffect(() => {
+        const movieListEl = document.querySelector('#movieList')
+        movieListEl.scrollTo(0, 0)
+    }, [moviePage])
 
     return (
         <div className="container">
@@ -45,7 +49,7 @@ function Movies({ fetchMovies, movies }) {
                 </div>
             </div>
             <div className="row justify-content-center mt-3">
-                <div className="d-flex flex-wrap movielist">
+                <div id="movieList" className="row row-cols-4 justify-content-center movielist">
                     {movies.map(m => {
                         return (
                             <Movie movie={m} key={m.id} />

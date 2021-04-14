@@ -16,6 +16,13 @@ export const selectTvShow = (tvShow) => {
     };
 };
 
+export const setSearchQuery = (query) => {
+    return {
+        type: 'SEARCH_QUERY',
+        payload: query
+    }
+}
+
 export const fetchMovies = (state = "popular", page = 1) => async dispatch => {
     let res;
     switch (state) {

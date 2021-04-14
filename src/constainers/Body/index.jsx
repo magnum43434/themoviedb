@@ -5,6 +5,7 @@ import MovieDetail from '../MovieDetail';
 import TvShowDetail from '../TvShowDetail';
 import Movies from '../Movies';
 import TvShows from '../TvShows';
+import SearchResults from '../SearchResults';
 
 export default function Body() {
     return (
@@ -13,6 +14,7 @@ export default function Body() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/Movies" component={Movies} />
                 <Route exact path="/Tv-Shows" component={TvShows} />
+                <Route exact path="/SearchResults" component={SearchResults} />
                 <Route path="/Movies/:ID" component={MovieDetail} />
                 <Route path="/Tv-Shows/:ID" component={TvShowDetail} />
             </Switch>

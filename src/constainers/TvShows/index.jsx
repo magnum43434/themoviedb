@@ -2,6 +2,7 @@ import React, { useEffect, useState, useReducer } from 'react'
 import { connect } from 'react-redux'
 import TvShow from '../../components/TvShow'
 import { fetchTvShows } from '../../actions'
+import './style.scss'
 
 function reducer(page, action) {
     switch (action.type) {
@@ -33,6 +34,11 @@ function TvShows({ tvshows, fetchTvShows }) {
         setSearchCat(e.target.value)
     }
 
+    useEffect(() => {
+        const tvShowsListEl = document.querySelector('#tvShowsList')
+        tvShowsListEl.scrollTo(0, 0)
+    }, [tvShowsPage])
+
     return (
         <div className="container">
             <div className="row">
@@ -44,7 +50,7 @@ function TvShows({ tvshows, fetchTvShows }) {
                 </div>
             </div>
             <div className="row justify-content-center mt-3">
-                <div className="d-flex flex-wrap movielist">
+                <div id="tvShowsList" className="d-flex flex-wrap tvshowlist">
                     {tvshows.map(ts => {
                         return (
                             <TvShow tvshow={ts} key={ts.id} />
